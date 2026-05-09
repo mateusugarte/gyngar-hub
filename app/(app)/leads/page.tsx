@@ -3,7 +3,8 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { LeadsClient } from './components/leads-client'
 import { LeadsMetrics } from './components/leads-metrics'
-import { DateRangeFilter, getDateRange } from './components/date-range-filter'
+import { DateRangeFilter } from './components/date-range-filter'
+import { getDateRange } from './lib/date-range'
 import type { Lead } from './components/lead-card'
 
 interface LeadsPageProps {
