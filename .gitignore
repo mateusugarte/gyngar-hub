@@ -1,0 +1,36 @@
+# Environment — NEVER commit
+.env
+.env.local
+.env*.local
+.env.production
+.env.development.local
+.env.test.local
+
+# Next.js build artifacts
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel/
+
+# Supabase local
+supabase/.temp/
+supabase/functions/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Test coverage
+coverage/
+
+# Misc
+*.log
+.turbo/
