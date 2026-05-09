@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ═══════════════════════════════════════════════
+   GYNGAR.HUB — DESIGN TOKENS
+   Paleta: Claude / Anthropic color system
+   Toggle: <html data-theme="dark|light">
+═══════════════════════════════════════════════ */
+
+@custom-variant dark (&:is([data-theme="dark"] *), &[data-theme="dark"]);
+
+[data-theme="dark"] {
+  --bg-base:           #1C1A17;
+  --bg-surface:        #252320;
+  --bg-surface-raised: #2D2B27;
+  --bg-sidebar:        #191714;
+
+  --border-subtle:     #332F29;
+  --border-visible:    #3D3930;
+  --border-strong:     #504A40;
+
+  --text-display:      #F5ECD7;
+  --text-primary:      #E8DCC8;
+  --text-secondary:    #9A8F7E;
+  --text-disabled:     #5C5448;
+
+  --accent:            #DA7756;
+  --accent-hover:      #C96442;
+  --accent-subtle:     rgba(218,119,86,0.12);
+  --accent-border:     rgba(218,119,86,0.30);
+  --accent-text:       #F0956E;
+
+  --success:           #5A9E7A;
+  --success-subtle:    rgba(90,158,122,0.12);
+  --warning:           #C9933A;
+  --warning-subtle:    rgba(201,147,58,0.12);
+  --danger:            #B85040;
+  --danger-subtle:     rgba(184,80,64,0.12);
+
+  --background:        var(--bg-base);
+  --foreground:        var(--text-primary);
+  --card:              var(--bg-surface);
+  --card-foreground:   var(--text-primary);
+  --popover:           var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary:           var(--accent);
+  --primary-foreground: var(--bg-base);
+  --secondary:         var(--bg-surface-raised);
+  --secondary-foreground: var(--text-primary);
+  --muted:             var(--bg-surface-raised);
+  --muted-foreground:  var(--text-secondary);
+  --accent-foreground: var(--accent-text);
+  --destructive:       var(--danger);
+  --border:            var(--border-visible);
+  --input:             var(--border-visible);
+  --ring:              var(--accent);
+  --radius:            0.625rem;
+}
+
+[data-theme="light"] {
+  --bg-base:           #FAF5EC;
+  --bg-surface:        #FFFFFF;
+  --bg-surface-raised: #F5ECD7;
+  --bg-sidebar:        #F2EBD8;
+
+  --border-subtle:     #EDE4D0;
+  --border-visible:    #DDD3BC;
+  --border-strong:     #C9BFA8;
+
+  --text-display:      #1C1A17;
+  --text-primary:      #2D2B27;
+  --text-secondary:    #7A7060;
+  --text-disabled:     #A8A090;
+
+  --accent:            #C96442;
+  --accent-hover:      #B55A38;
+  --accent-subtle:     rgba(201,100,66,0.10);
+  --accent-border:     rgba(201,100,66,0.25);
+  --accent-text:       #C96442;
+
+  --success:           #2D7A52;
+  --success-subtle:    rgba(45,122,82,0.08);
+  --warning:           #A07030;
+  --warning-subtle:    rgba(160,112,48,0.08);
+  --danger:            #963828;
+  --danger-subtle:     rgba(150,56,40,0.08);
+
+  --background:        var(--bg-base);
+  --foreground:        var(--text-primary);
+  --card:              var(--bg-surface);
+  --card-foreground:   var(--text-primary);
+  --popover:           var(--bg-surface);
+  --popover-foreground: var(--text-primary);
+  --primary:           var(--accent);
+  --primary-foreground: var(--bg-base);
+  --secondary:         var(--bg-surface-raised);
+  --secondary-foreground: var(--text-primary);
+  --muted:             var(--bg-surface-raised);
+  --muted-foreground:  var(--text-secondary);
+  --accent-foreground: var(--accent-text);
+  --destructive:       var(--danger);
+  --border:            var(--border-visible);
+  --input:             var(--border-visible);
+  --ring:              var(--accent);
+  --radius:            0.625rem;
+}
+
+@theme inline {
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --color-bg-base:     var(--bg-base);
+  --color-bg-surface:  var(--bg-surface);
+  --color-bg-raised:   var(--bg-surface-raised);
+  --color-bg-sidebar:  var(--bg-sidebar);
+  --color-border-s:    var(--border-subtle);
+  --color-border-v:    var(--border-visible);
+  --color-border-st:   var(--border-strong);
+  --color-txt-display: var(--text-display);
+  --color-txt-primary: var(--text-primary);
+  --color-txt-sec:     var(--text-secondary);
+  --color-txt-dis:     var(--text-disabled);
+  --color-accent:      var(--accent);
+  --color-accent-h:    var(--accent-hover);
+  --color-accent-t:    var(--accent-text);
+  --color-success:     var(--success);
+  --color-warning:     var(--warning);
+  --color-danger:      var(--danger);
+
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-card:        var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover:     var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary:     var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:   var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:       var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border:      var(--border);
+  --color-input:       var(--input);
+  --color-ring:        var(--ring);
+  --radius-sm:         calc(var(--radius) * 0.6);
+  --radius-md:         calc(var(--radius) * 0.8);
+  --radius-lg:         var(--radius);
+  --radius-xl:         calc(var(--radius) * 1.4);
+}
+
+@keyframes pulse-warn {
+  0%, 100% { border-left-color: var(--warning); opacity: 1; }
+  50%       { border-left-color: var(--warning); opacity: 0.5; }
+}
+
+@keyframes pulse-danger {
+  0%, 100% { border-left-color: var(--danger); opacity: 1; }
+  50%       { border-left-color: var(--danger); opacity: 0.45; }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background: var(--bg-base);
+    color: var(--text-primary);
+  }
+}
