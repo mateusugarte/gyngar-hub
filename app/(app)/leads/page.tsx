@@ -28,7 +28,7 @@ export default async function LeadsPage({ searchParams }: LeadsPageProps) {
     .order('created_at', { ascending: false })
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '24px' }}>
+    <div className="anim-page" style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '24px' }}>
       {/* Page header */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',

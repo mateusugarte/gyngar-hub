@@ -1,9 +1,22 @@
-export default function AgentPage() {
+import { createClient } from '@/lib/supabase/server'
+import { redirect } from 'next/navigation'
+import { AgentPageClient } from './components/agent-page-client'
+
+export default async function AgentPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/login')
+
+  const { data: conversations } = await supabase
+    .from('chat_conversations')
+    .select('id, titulo, created_at')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(50)
+
   return (
-    <main className="p-8">
-      <span className="font-mono text-[10px] uppercase tracking-[0.1em]" style={{ color: 'var(--text-secondary)' }}>
-        AGENTE IA — EM DESENVOLVIMENTO
-      </span>
-    </main>
+    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <AgentPageClient initialConversations={conversations ?? []} />
+    </div>
   )
 }

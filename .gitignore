@@ -34,3 +34,8 @@ coverage/
 # Misc
 *.log
 .turbo/
+tsconfig.tsbuildinfo
+
+# Claude Code
+.claude/
+.notes/

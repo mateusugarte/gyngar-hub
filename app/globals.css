@@ -163,6 +163,139 @@
   50%       { border-left-color: var(--danger); opacity: 0.45; }
 }
 
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility animation classes */
+.anim-page       { animation: fade-in-up 240ms ease-out both; }
+.anim-modal      { animation: slide-up 260ms ease-out both; }
+.anim-dropdown   { animation: dropdown-in 180ms ease-out both; }
+.anim-scale      { animation: scale-in 200ms ease-out both; }
+.anim-slide-right { animation: slide-in-right 200ms ease-out both; }
+
+/* Staggered children */
+.anim-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.anim-stagger > *:nth-child(2) { animation-delay: 40ms; }
+.anim-stagger > *:nth-child(3) { animation-delay: 80ms; }
+.anim-stagger > *:nth-child(4) { animation-delay: 120ms; }
+.anim-stagger > *:nth-child(5) { animation-delay: 160ms; }
+.anim-stagger > *:nth-child(6) { animation-delay: 200ms; }
+
+/* Interactive card hover */
+.card-hover {
+  transition: border-color 180ms ease-out, box-shadow 180ms ease-out, transform 180ms ease-out;
+}
+.card-hover:hover {
+  border-color: var(--border-visible) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+/* Button press feedback */
+.btn-press { transition: transform 100ms ease-out, opacity 100ms ease-out; }
+.btn-press:active { transform: scale(0.97); opacity: 0.9; }
+
+/* Agent chat — streaming cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Agent chat — markdown prose styles */
+.markdown-agent h1, .markdown-agent h2, .markdown-agent h3 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 1em 0 0.4em;
+}
+.markdown-agent h1 { font-size: 1.1rem; }
+.markdown-agent h2 { font-size: 1rem; }
+.markdown-agent h3 { font-size: 0.9rem; color: var(--text-secondary); }
+.markdown-agent p  { margin: 0.5em 0; line-height: 1.6; }
+.markdown-agent ul, .markdown-agent ol { padding-left: 1.2em; margin: 0.4em 0; }
+.markdown-agent li { margin: 0.2em 0; line-height: 1.6; }
+.markdown-agent strong { color: var(--text-primary); font-weight: 500; }
+.markdown-agent em    { color: var(--text-secondary); }
+.markdown-agent code  {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8em;
+  background: var(--bg-surface-raised);
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: var(--accent-text);
+}
+.markdown-agent pre {
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 12px;
+  overflow-x: auto;
+  margin: 0.6em 0;
+}
+.markdown-agent pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.82em;
+  color: var(--text-primary);
+}
+.markdown-agent blockquote {
+  border-left: 2px solid var(--accent-border);
+  padding-left: 12px;
+  margin: 0.6em 0;
+  color: var(--text-secondary);
+}
+.markdown-agent hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 1em 0;
+}
+.markdown-agent table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82em;
+  margin: 0.6em 0;
+}
+.markdown-agent th, .markdown-agent td {
+  padding: 6px 10px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+}
+.markdown-agent th {
+  background: var(--bg-surface-raised);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -172,4 +305,9 @@
     background: var(--bg-base);
     color: var(--text-primary);
   }
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-visible); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
 }

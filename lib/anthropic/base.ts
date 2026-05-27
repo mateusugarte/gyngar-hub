@@ -1,9 +1,9 @@
-import Anthropic from '@anthropic-ai/sdk'
+import OpenAI from 'openai'
 
-export function createAnthropicClient() {
-  return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+export function createOpenAIClient() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 }
 
-export const MODEL = 'claude-sonnet-4-20250514'
+export const MODEL = 'gpt-4o'
 export const MAX_TOKENS_IDEAS = 2000
 export const MAX_TOKENS_PLANNING = 4000

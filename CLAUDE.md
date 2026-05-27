@@ -22,7 +22,7 @@ Cada usuário tem dados completamente isolados via Supabase RLS.
 | Formulários | react-hook-form + zod |
 | Gráficos | Recharts |
 | Drag-and-drop | @dnd-kit/core + @dnd-kit/sortable |
-| IA | Anthropic API (claude-sonnet-4-20250514) |
+| IA | OpenAI API (gpt-4o) |
 | Scraping | Apify API (chave por usuário, salva em user_settings) |
 | Instagram | Meta Graph API v21.0 |
 | Deploy | Vercel + Supabase |

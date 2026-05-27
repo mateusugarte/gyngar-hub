@@ -5,6 +5,10 @@ interface EngagementBarChartProps {
 }
 
 const TIPO_COLORS: Record<string, string> = {
+  reel: 'var(--accent)',
+  imagem: 'var(--warning)',
+  carrossel: 'var(--success)',
+  // legado
   isca: 'var(--accent)',
   educacao: 'var(--accent-text)',
   viralizacao: 'var(--warning)',
